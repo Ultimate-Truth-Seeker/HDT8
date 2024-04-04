@@ -1,3 +1,4 @@
+import java.util.PriorityQueue;
 import java.util.Vector;
 
 /**
@@ -6,7 +7,7 @@ import java.util.Vector;
  * 
  * @author libro de texto "Java Structures de Duane Bailey"
  */
-public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
+public class VectorHeap<E extends Comparable<E>> extends PriorityQueue<E>
 {
 	protected Vector<E> data; // the data, kept in heap order
 
@@ -87,11 +88,13 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
     /**
      * // pre: value is non-null comparable
      * // post: value is added to priority queue
+     * @return 
      */
-	public void add(E value)
+	public boolean add(E value)
 	{
 		data.add(value);
 		percolateUp(data.size()-1);
+        return true;
 	}
 
     /**
@@ -144,7 +147,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
 		return minVal;
 	}
 
-    @Override
+    
     public E getFirst() {
         return data.firstElement();
     }
