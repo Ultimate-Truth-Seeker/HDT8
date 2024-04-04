@@ -2,6 +2,8 @@ import java.util.Vector;
 
 /**
  * Implementación del vectorHeap
+ * En el github se van usar dos versiones diferentes para los dos casos solicitados de implementación
+ * 
  * @author libro de texto "Java Structures de Duane Bailey"
  */
 public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
