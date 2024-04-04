@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 
 /**
@@ -13,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         // priority queue para los pacientes
-        VectorHeap<Patient> vectorHeap = new VectorHeap<>();
+        PriorityQueue<Patient> priorityQueue = new PriorityQueue<>();
 
         // lectura y carga de los datos al queue
         try (Scanner sc = new Scanner(new File(filename))) {
@@ -22,7 +23,7 @@ public class Main {
                 scn = new Scanner(sc.nextLine());
                 scn.useDelimiter(",");
                 Patient patient = new Patient(scn.next(), scn.next(), scn.next());
-                vectorHeap.add(patient);
+                priorityQueue.add(patient);
             }
             
         } catch (Exception e) { // salida del programa si no se puede leer el archivo
@@ -31,8 +32,8 @@ public class Main {
         }
 
         // Se retiran uno por uno a los pacientes, ordenados por prioridad
-        while (!vectorHeap.isEmpty()) {
-            Patient out = vectorHeap.remove();
+        while (!priorityQueue.isEmpty()) {
+            Patient out = priorityQueue.remove();
             System.out.println(out.getName()+ out.getIllness() + out.getPriority());
         }
 
